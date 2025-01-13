@@ -10,27 +10,19 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @NotBlank(message = "Title can't be Blank")
     private String title;
-
-    @NotBlank(message = "Author can't be Blank")
     private String author;
-
-    @Min(value = 1, message = "Price must be greater than 0")
     private Double price;
 
+    // Default constructor
     public Book() {
     }
 
-    public Book(Integer id, String title, String author, Double price) {
-        this.id = id;
+    // Parameterized constructor
+    public Book(String title, String author, Double price) {
         this.title = title;
         this.author = author;
         this.price = price;
-    }
-
-    public Book(String s, String johnDoe, double v) {
     }
 
     // Getters and setters
@@ -64,5 +56,16 @@ public class Book {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    // Overriding toString() method
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
